@@ -1,0 +1,61 @@
+.roleColorEffect,
+.replyRoleColorEffect {
+    --role-dark: color-mix(
+        in srgb,
+        var(--role-color) 45%,
+        black
+    );
+
+    --role-light: color-mix(
+        in srgb,
+        var(--role-color) 35%,
+        white
+    );
+
+    background: linear-gradient(
+        90deg,
+        var(--role-dark),
+        var(--role-color),
+        var(--role-light),
+        var(--role-color),
+        var(--role-dark),
+        var(--role-color),
+        var(--role-light),
+        var(--role-color),
+        var(--role-dark)
+    );
+
+    background-size: 300% 100%;
+
+    background-clip: text;
+    -webkit-background-clip: text;
+
+    color: transparent !important;
+    -webkit-text-fill-color: transparent !important;
+
+    animation:
+        roleColorShimmer 3s linear infinite;
+
+    text-shadow:
+        0 0 4px color-mix(
+            in srgb,
+            var(--role-color) 50%,
+            transparent
+        ),
+
+        0 0 10px color-mix(
+            in srgb,
+            var(--role-color) 25%,
+            transparent
+        );
+}
+
+@keyframes roleColorShimmer {
+    from {
+        background-position: 0% center;
+    }
+
+    to {
+        background-position: 300% center;
+    }
+}
